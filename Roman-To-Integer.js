@@ -27,7 +27,6 @@ var romanToInt = function(s) {
     } else {
       total += valueMap[s.charAt(i)]
     }
-
   }
 
   return total;
