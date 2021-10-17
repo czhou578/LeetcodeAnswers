@@ -14,13 +14,18 @@ var searchInsert = function(nums, target) {
       }
       
       if (target < nums[middle]) {
-          rightIndex = middle - 1;
+          rightIndex = middle;
       }
+      
   }
+    if (leftIndex == nums.length - 1 && nums[leftIndex] < target) {
+      return rightIndex + 1;
+    } else {
       return rightIndex;
+    }
 
 };
 
-let nums = [1,3,5,6]
-console.log(searchInsert(nums, 2));
+let nums = [1]
+console.log(searchInsert(nums, 7));
 
