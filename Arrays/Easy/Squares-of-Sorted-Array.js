@@ -5,7 +5,6 @@ var sortedSquares = function(nums) {
     resultArray.push(Math.pow(number, 2))
   }
 
-  // return resultArray.sort((a, b) => {return a - b})
   resultArray.sort(function(a, b) {return a - b})
   return resultArray
 
