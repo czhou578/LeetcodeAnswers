@@ -8,7 +8,7 @@
 
   const dfs = (i, nums, slate) => {
     if (i === nums.length) {
-      results.push(nums.slice())
+      results.push(slate.slice())
       return;
     }
 
