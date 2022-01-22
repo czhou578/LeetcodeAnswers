@@ -50,7 +50,7 @@ console.log(maxProfit(test));
     sold = held + price;
     held = Math.max(held, reset - price);
     reset = Math.max(reset, preSold);
-    console.log(sold, held, reset);
+    // console.log(sold, held, reset);
   }
 
   return Math.max(sold, reset);
