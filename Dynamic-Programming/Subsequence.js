@@ -4,25 +4,23 @@
  */
  var lengthOfLIS = function(nums) {
 
-  let resultNum = []
-  var counter = 1;
+  if (nums.length == 0) return 0;
 
-  resultNum[0] = 1;
+  let array = new Array(nums.length).fill(1)
+
+  array[0] = 1
 
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < i; j++) {
       if (nums[i] > nums[j]) {
-        counter++
+        array[i] = Math.max(array[i], array[j] + 1)
       } else {
-        continue
-      }
+        continue;
+      }    
     }
-    resultNum[i] = counter
-    counter = 1;
-
   }
 
-  return Math.max(...resultNum)
+  return Math.max(...array)
     
 };
 
