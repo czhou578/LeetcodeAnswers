@@ -13,7 +13,9 @@
   let fastHead = head;
   let slowHead = head;
   
-  while (fastHead != null && fastHead.next != null) {
+
+  //slowhead lands on middle after loop and fasthead is at null
+  while (fastHead != null && fastHead.next != null) { 
       slowHead = slowHead.next;
       fastHead = fastHead.next.next;
   }
