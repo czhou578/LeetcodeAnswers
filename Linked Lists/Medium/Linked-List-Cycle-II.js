@@ -36,11 +36,16 @@
 
   return slowPointer
 
-
-    
 };
 
 /**
  * Strategy: use two pointers, and a third pointer to find where the cycle begins
- * I didn't use the extra pointer 
+ * 
+ * I didn't use the extra pointer to traverse the linked list and eventually, the slow pointer
+ * will meet the extra pointer and where they intersect will be the beginning of the cycle.
+ * 
+ * check whether fast and slow pointers are equal because if so, then while loop will stop and 
+ * return null check will be satisfied
+ * 
+ * 
  */

@@ -21,3 +21,7 @@
 
   return previous
 };
+
+/**
+ * Have 32pointers, previous,current, and break links
+ */
