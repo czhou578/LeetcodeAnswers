@@ -19,3 +19,11 @@ var coinChange = function(coins, amount) {
 
   return amountArray[amountArray.length - 1] === Infinity ? -1 : amountArray[amountArray.length - 1]
 };
+
+/**
+ * start the problem with value 0 for amountArray[0]
+ * Subtract amount from the index, and compare whether the min has been found. 
+ * If at the end, the last element in the array is infinty, then combination cannot be 
+ * made from coins
+ * 
+ */

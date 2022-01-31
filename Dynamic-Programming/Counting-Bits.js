@@ -14,3 +14,8 @@
 };
 
 console.log(countBits(5));
+
+/**
+ * Follow the pattern: index 4 has same number of ones as index 2 and index 8
+ * odd number elements just add one more 1 to previous even element
+ */
