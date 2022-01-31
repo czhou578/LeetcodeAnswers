@@ -19,3 +19,9 @@
 
   return compareArray[compareArray.length - 1]
 };
+
+/**
+ * new array of length + 1 since if there is one word, then it return true
+ * draw out the solution
+ * 
+ */
