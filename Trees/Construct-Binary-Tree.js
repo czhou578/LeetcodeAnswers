@@ -22,3 +22,8 @@
 
   return root
 };
+
+/**
+ * all the right tree values from root are after mid, so mid + 1
+ * draw out the patterns by hand (inorder and postorder traversal) first
+ */

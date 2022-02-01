@@ -37,3 +37,7 @@ var hasPathSum = function(root, targetSum) {
   dfs(root, targetSum)
   return hasPath
 };
+
+/**
+ * recursive solution 
+ */
