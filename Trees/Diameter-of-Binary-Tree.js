@@ -30,3 +30,11 @@
 
   return max
 };
+
+/**
+ * keeping track of counters. Dfs to the farthest left and right and as you move back up, add and 
+ * compare. Only take in one node parameter since return gives us value needed to proceed. 
+ * 
+ * time complexity o(n) and space complexity o(n). Worst case is if tree only is one sided, which
+ * is when we need to traverse the entire tree. 
+ */

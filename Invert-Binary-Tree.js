@@ -31,3 +31,7 @@ var invertTree = function(root) {
   // dfs(root.left, root.right)
   return root
 };
+
+/**
+ * Have two variables store the left and right. Dfs
+ */
