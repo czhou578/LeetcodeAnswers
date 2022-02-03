@@ -40,3 +40,7 @@ var lowestCommonAncestor = function(root, p, q) {
   dfs(root)
   return result
 };
+
+/**
+ * draw it out. Check is right, left, and current are true.
+ */

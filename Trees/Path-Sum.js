@@ -40,4 +40,7 @@ var hasPathSum = function(root, targetSum) {
 
 /**
  * recursive solution 
+ * sum is at top, subtract sum from value of reached node as you go left and right
+ * O(n) for time and space complexity; value and sum same, that will be base case
+ * 
  */
