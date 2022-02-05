@@ -43,3 +43,7 @@
   dfs(root, targetSum, [])
   return resultArray
 };
+
+/**
+ * same as path sum one, except pop off after every dfs is finished.
+ */

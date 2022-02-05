@@ -27,3 +27,8 @@ var combinationSum2 = function(candidates, target) {
   dfs(0, candidates, target, [])
   return result;
 };
+
+/**
+ * if target is 0, push into the result and backtrack, keep 4 parameters inside dfs function
+ * skip iteration if conditions aren't met. push and after it returns, pop from the slate.
+ */
