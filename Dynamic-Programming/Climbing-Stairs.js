@@ -14,3 +14,7 @@ var climbStairs = function(n) {
 
   return array[n]
 };
+
+/**
+ * Use the table approach, and return the index mentioned by n at the table.
+ */

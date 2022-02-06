@@ -13,3 +13,8 @@ var canJump = function(nums) {
 
   return lastIndex === 0
 };
+
+/**
+ * have last index repeatedly store the lastindex that can be reached.
+ * add the index and value of index and see if you can reach the lastindex
+ */
