@@ -34,6 +34,11 @@ var levelOrder = function(root) {
 
   return result
 
-
 };
+
+/**
+ * just like how fatma did it in class.
+ * use one queue as result and one queue to store the children of the parent node. The queue length is checked to see if
+ * operation should continue. 
+ */
 
