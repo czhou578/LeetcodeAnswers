@@ -63,3 +63,9 @@
 
   return result.reverse()
 };
+
+/**
+ * decrement length, and take out first element in queue
+ * if node to left or right exists, push into queue
+ * create new array by mapping all elements in queue, then push into resultcomm
+ */
