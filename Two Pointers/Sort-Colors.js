@@ -69,3 +69,11 @@ const swap = (array, a, b) => {
 
 let temp = [2,0,2,1,1,0]
 sortColors(temp)
+
+/**
+ * Have 2 ranges where all the 0's are on the left and the 2's are on the right
+ * Have a pointer to the end of the array, and when it decremends, it means the end has 100% the highest value
+ * You do i-- in the else if because its possible that you are swapping 2 with a 2 in the ith position. 
+ * 
+ * Takeaway: Have one pointer in the beginning and end, and increment / decrement based on conditions
+ */

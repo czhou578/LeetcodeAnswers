@@ -38,7 +38,6 @@
 };
 
 const dfs = (start, target, nums) => {
-  // let secondPointer = i + 1;
   let lastPointer = nums.length - 1;
   let subResult = []
 
@@ -63,3 +62,7 @@ const dfs = (start, target, nums) => {
 
   return subResult
 }
+
+/**
+ * Repeating the theme of one pointer at beginning and one pointer at the end. 
+ */
