@@ -29,7 +29,7 @@
     }
   }
 
-  resultLength === Infinity ? 0 : resultLength
+  return resultLength === Infinity ? 0 : resultLength
 
 };
 

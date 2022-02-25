@@ -46,5 +46,11 @@ class Solution {
 }
 
 /**
+ * recursive approach, find the current max value position and create a tree node for that. 
+ * Do the same for the left and the right. 
  * 
+ * 1. I didn't think of using a recursive approach
+ * I am not quite familiar with java, as i use js
+ * i got the indexes wrong in the for loop
+ * Takeaway: think of steps that you can do repeatedly until you hit a base case. Consider rcursion for this dfs problem.
  */
