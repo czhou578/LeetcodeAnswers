@@ -29,11 +29,20 @@
   let maxProduct = 1
 
   for (const number of nums) {
+    /**
+     * special case: if we multiply a subarray sequence by 0, its going to be 0 forever,
+     * so reset the min and max products to 1 and skip to next loop
+     */
     if (number == 0) {
       minProduct = 1
       maxProduct = 1
       continue
     }
+
+    /**
+     * We are calculating minProduct using the maxProduct calculated above, so we save
+     * the initial maaxProduct * number in a temp variable
+     */
 
     let temp = maxProduct * number
 
@@ -45,6 +54,8 @@
   return result
 
 };
+
+//Complexity is O(n) for time complexity and O(1) for space since we are not using extra array
 
 let test = [-2, 3, -1]
 console.log(maxProduct(test));
