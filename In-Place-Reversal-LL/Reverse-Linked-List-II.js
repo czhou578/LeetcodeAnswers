@@ -19,7 +19,7 @@
   let pointerHead = head;
   let previous = dummyNode //save previous 
 
-  for (let i = 1; i < left; i++) {
+  for (let i = 1; i < left; i++) { //traverse to the exact place to begin reversal
     pointerHead = pointerHead.next
     previous = previous.next
   }
@@ -48,3 +48,10 @@
 
     
 };
+
+/**
+ * We use dummy node because of an edge case where if the swap is starting
+ * from the first node. 
+ * 
+ * 
+ */
