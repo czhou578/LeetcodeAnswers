@@ -34,10 +34,6 @@
   previous.next = removeNode.next
   
   return resultHead.next
-  // let previousPointer = dummyHead
-  // let removePointer = head
-
-
     
 };
 

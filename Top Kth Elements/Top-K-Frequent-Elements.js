@@ -66,5 +66,9 @@
   
 };
 
+/**
+ * create map, sort descending, and then push into result
+ */
+
 let test = [1]
 console.log(topKFrequent(test, 1));
