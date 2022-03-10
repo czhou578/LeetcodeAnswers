@@ -54,7 +54,7 @@ var deleteDuplicates = function(head) {
     }
 
     if (previous.next == current) { //if previous and current are next to each other, previous points to same as current
-      previous = current
+      previous = previous.next
     } else {
       previous.next = current.next
       console.log('previous next: ' + previous.next.val);
