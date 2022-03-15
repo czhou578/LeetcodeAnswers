@@ -28,3 +28,4 @@
 };
 
 //used map to solve this
+//constant space: It means, the auxiliary space size, doesn't depends on the length of input array.
