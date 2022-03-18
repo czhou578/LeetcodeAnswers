@@ -51,4 +51,6 @@ const dfs = (i, j, board, word, counter) => {
  * 
  * Actual Space Time (yes, correct)
  * Actual Run Time (yes, correct) 
+ * 
+ * I didn't read problem carefully and see that i cannot use a square more then once. 
  */
