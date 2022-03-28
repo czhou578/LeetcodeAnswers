@@ -40,5 +40,8 @@ var levelOrder = function(root) {
  * just like how fatma did it in class.
  * use one queue as result and one queue to store the children of the parent node. The queue length is checked to see if
  * operation should continue. 
+ * 
+ * Time O(n), we are not going through a value more then once 
+ * Space O(n), we are not allocating more space then the # of elements in tree, so its O(n)
  */
 
