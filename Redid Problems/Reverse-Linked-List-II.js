@@ -53,5 +53,6 @@
  * We use dummy node because of an edge case where if the swap is starting
  * from the first node. 
  * 
- * 
+ * Time: O(n) since we are traversing list once 
+ * Space: O(1) since we are using constant time. 
  */
