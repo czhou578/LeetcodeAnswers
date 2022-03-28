@@ -24,4 +24,6 @@
 
 /**
  * Have 32pointers, previous,current, and break links
+ * Time O(n) because we are going through the list once
+ * Space O(1) 
  */
