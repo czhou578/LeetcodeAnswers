@@ -65,4 +65,7 @@ const dfs = (start, target, nums) => {
 
 /**
  * Repeating the theme of one pointer at beginning and one pointer at the end. 
+ * 
+ * Time complexity: O(n^2)
+ * space complexity: O(n)
  */
