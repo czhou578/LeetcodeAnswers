@@ -39,6 +39,7 @@
   let size = matrix.length * matrix[0].length
 
   while (result.length < size) {
+    
     for (let i = left; i <= right && result.length < size; i++) {
       result.push(matrix[top][i])
     }
