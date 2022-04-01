@@ -43,24 +43,28 @@
 // };
 
 function zigzagLevelOrder(root) {
-  let result = [];
-  go(root, 0, result);
-  return result;
-}
+  if (!root) return []
 
-function go(node, level, result) {  // l means level
-  if (!node) return;
+  const queue = [root]
+  let result = []
+  let counter = 0;
 
-  if (result[level] == null) { //if there is null node
-    result.push([]);
+  while (queue.length) {
+    let length = queue.length
+
+    if (count % 2 === 0) result.push(queue.map(node => node.val))
+    else result.push(queue.map(node => node.val).reverse())
+    counter++
+  
+    while (length--) {
+      let node = queue.shift()
+
+      if (node.left) queue.push(node.left)
+      if (node.right) queue.push(node.right)
+
+    }
   }
 
-  if (level % 2 === 0) {
-    result[level].push(node.val);
-  } else {
-    result[level].unshift(node.val);
-  }
-
-  go(node.left, level + 1, result);
-  go(node.right, level + 1, result);
+  return result
 }
+
