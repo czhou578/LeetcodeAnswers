@@ -119,7 +119,7 @@ var connect = function(root) { //populating next right pointers 1
 
 };
 
-function zigzagLevelOrder(root) {
+function zigzagLevelOrder(root) { //binary tree zigzag
   if (!root) return []
 
   const queue = [root]
@@ -129,7 +129,7 @@ function zigzagLevelOrder(root) {
   while (queue.length) {
     let length = queue.length
 
-    if (count % 2 === 0) result.push(queue.map(node => node.val))
+    if (counter % 2 === 0) result.push(queue.map(node => node.val))
     else result.push(queue.map(node => node.val).reverse())
     counter++
   
