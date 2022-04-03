@@ -31,6 +31,6 @@
 };
 
 /**
- * Time: O(n)
- * space: O(n)
+ * Time: O(n) since we have one for loop
+ * space: O(n) since sorted size depends on the initial size of nums
  */
