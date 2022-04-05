@@ -21,3 +21,8 @@ var rob = function(nums) {
 
   return result[result.length - 1]
 };
+
+/**
+ * Time complexity: O(n)
+ * space complexity: O(n)
+ */
