@@ -29,8 +29,7 @@ var sortedArrayToBST = function(nums) {
 };
 
 function constructBST(nums, low, high) {
-  if (high > nums.length - 1 || low < 0) return null
-  if (low > high || nums.length === 0) return null
+  if (low > high) return null
 
   let mid = low + Math.floor((high - low) / 2)
 
