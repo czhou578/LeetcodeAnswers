@@ -18,14 +18,6 @@ var sortedArrayToBST = function(nums) {
 
   return constructBST(nums, 0, nums.length - 1)
 
-  // let middleIndex = nums.length / 2
-  // let root = new TreeNode(nums[middleIndex])
-
-  // root.left = sortedArrayToBST(nums.slice(0, middleIndex - 1))
-  // root.right = sortedArrayToBST(nums.slice(middleIndex + 1))
-
-  // return root
-
 };
 
 function constructBST(nums, low, high) {
