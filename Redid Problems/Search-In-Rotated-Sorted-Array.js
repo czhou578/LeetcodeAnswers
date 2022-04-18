@@ -72,7 +72,7 @@
 
 /**
  * RunTime Complexity (Guess): O(log n) since we are reducingthe search array by half each time
- * Space Complexity(Guess): O(1)  
+ * Space Complexity(Guess): O(1)    
  */
 
 let test = [1, 3, 5, 7, 10];
