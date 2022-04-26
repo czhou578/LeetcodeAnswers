@@ -13,3 +13,8 @@ var hasCycle = function(head) {
   
   return false;
 };
+
+/**
+ * Time complexity: O(n)
+ * space complexity: O(1)
+ */
