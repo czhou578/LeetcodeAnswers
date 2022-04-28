@@ -17,7 +17,6 @@
   let slowPointer = head;
 
   let pointer = head;
-  let index = 0;
 
   while(fastPointer && fastPointer.next) {
     fastPointer = fastPointer.next.next
@@ -31,7 +30,6 @@
   while(slowPointer !== pointer) {
     pointer = pointer.next
     slowPointer = slowPointer.next
-    index++;
   }
 
   return slowPointer
@@ -47,5 +45,6 @@
  * check whether fast and slow pointers are equal because if so, then while loop will stop and 
  * return null check will be satisfied
  * 
- * 
+ * Time complexity: O(2n), O(n)
+ * Space: O(1)
  */
