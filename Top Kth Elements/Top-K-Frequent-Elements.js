@@ -68,6 +68,8 @@
 
 /**
  * create map, sort descending, and then push into result
+ * Time complexity: O(2n)
+ * Space complexity: O(n)
  */
 
 let test = [1]

@@ -28,29 +28,56 @@
 
   // return longestSubstringLength
 
-  let mostFrequent = -Infinity
-  let maximum = -Infinity
-  let charArray = new Array(26).fill(0)
-  let start = 0;
+  // let mostFrequent = -Infinity
+  // let maximum = -Infinity
+  // let charArray = new Array(26).fill(0)
+  // let start = 0;
 
-  for (let i = 0; i < s.length; i++) { //i will act as the furthest pointer ahead
-    let index = s.charCodeAt(i) - 65
-    charArray[index] += 1
-    mostFrequent = Math.max(mostFrequent, charArray[index])
-    let charsToModify = (i - start + 1) - mostFrequent
+  // for (let i = 0; i < s.length; i++) { //i will act as the furthest pointer ahead
+  //   let index = s.charCodeAt(i) - 65
+  //   charArray[index] += 1
+  //   mostFrequent = Math.max(mostFrequent, charArray[index])
+  //   let charsToModify = (i - start + 1) - mostFrequent
 
-    if (charsToModify > k) {
-      let index2 = s.charCodeAt(start) - 65
-      charArray[index2] -= 1
-      start++
+  //   if (charsToModify > k) {
+  //     let index2 = s.charCodeAt(start) - 65
+  //     charArray[index2] -= 1
+  //     start++
+  //   }
+
+  //   maximum = Math.max(maximum, i - start + 1)
+
+  // }
+
+  // return maximum
+
+  let count = {}
+  let result = 0
+  let left = 0
+
+  for (let right = 0; right < s.length; right++) {
+    if (count[s[right]]) {
+      count[s[right]] = 1 + count[s[right]]
+    } else {
+      count[s[right]] = 0
     }
 
-    maximum = Math.max(maximum, i - start + 1)
+    while ((right - left + 1) - Math.max(Object.values(count)) > k) {
+      count[s[left]] -= 1
+      left += 1
+    }
 
+    result = Math.max(result, right - left + 1)
   }
 
-  return maximum
+  return result
+
 };
+
+/**
+ * O(n) time complexity
+ * O(1) space complexity
+ */
 
 let string1 = "ABBB"
 let num = 3

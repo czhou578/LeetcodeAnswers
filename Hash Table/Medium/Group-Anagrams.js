@@ -3,8 +3,6 @@
  * @return {string[][]}
  */
  var groupAnagrams = function(strs) {
-  if (strs.length === 0) return [""]
-
   if (strs.length === 1) return [[strs[0]]]
 
   let obj = {}

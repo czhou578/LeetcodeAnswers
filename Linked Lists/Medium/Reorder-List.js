@@ -10,7 +10,7 @@
  * @return {void} Do not return anything, modify head in-place instead.
  */
 var reorderList = function(head) {
-  if (!head || !head.next) return;
+  // if (!head || !head.next) return;
   
   let slowPointer = head;
   let fastPointer = head;
@@ -20,24 +20,53 @@ var reorderList = function(head) {
     fastPointer = fastPointer.next.next
   }
 
-  let middleNode = slowPointer
-  let afterMiddleNode = slowPointer.next
+  let secondHalf = slowPointer.next
+  slowPointer.next = null;
+  let prevNode = null
 
-  while (afterMiddleNode && afterMiddleNode.next) {
-    let nextNode = afterMiddleNode.next
-    afterMiddleNode.next = nextNode.next
-    nextNode.next = middleNode.next
-    middleNode.next = nextNode
+  while (secondHalf) { //reverse second part of list
+    let temp = secondHalf.next
+    secondHalf.next = prevNode;
+    prevNode = secondHalf
+    secondHalf = temp
   }
 
-  slowPointer = head;
-  fastPointer = middleNode.next
+  let first = head;
+  let second = prevNode;
+
+  while (second) {
+    let temp1 = first.next
+    let temp2 = second.next
+
+    first.next = second
+    second.next = temp1
+    first = temp1;
+    second = temp2;
+  }
+
+  // let middleNode = slowPointer
+  // let afterMiddleNode = slowPointer.next
+
+  // while (afterMiddleNode && afterMiddleNode.next) {
+  //   let nextNode = afterMiddleNode.next
+  //   afterMiddleNode.next = nextNode.next
+  //   nextNode.next = middleNode.next
+  //   middleNode.next = nextNode
+  // }
+
+  // slowPointer = head;
+  // fastPointer = middleNode.next
   
-  while (fastPointer) {
-    middleNode.next = fastPointer.next
-    fastPointer.next = slowPointer.next
-    slowPointer.next = fastPointer
-    slowPointer = fastPointer.next
-    fastPointer = middleNode.next
-  }
+  // while (fastPointer) {
+  //   middleNode.next = fastPointer.next
+  //   fastPointer.next = slowPointer.next
+  //   slowPointer.next = fastPointer
+  //   slowPointer = fastPointer.next
+  //   fastPointer = middleNode.next
+  // }
 };
+
+/**
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ */

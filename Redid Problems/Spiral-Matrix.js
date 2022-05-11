@@ -71,4 +71,7 @@
 /**
  * Have restrictions on top left, right and bottom, and make sure that the result does not
  * exceed the number of squares.
+ * 
+ * Time complexity: O(n), since we are hitting every cell
+ * Space complexity: O(n) since it depends on input. 
  */

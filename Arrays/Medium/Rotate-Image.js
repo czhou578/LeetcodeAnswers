@@ -22,4 +22,6 @@ console.log(rotate(test));
 
 /**
  * reverse the first row, then apply symmetry
+ * Time complexity: O(n^2)
+ * Space complexity: O(1)
  */

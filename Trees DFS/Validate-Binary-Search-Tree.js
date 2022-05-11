@@ -30,6 +30,7 @@ const dfs = (node, low, high) => {
 /**
  * Use ranges like infinity and negative infinity to do this problem.
  * Time complexity if O(n) since we have to traverse the whole tree. 
+ * Space complexity is O(n) since we have to visit every node
  *
  */
 

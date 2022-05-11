@@ -24,3 +24,8 @@
 
   return stack.length === 0
 };
+
+/**
+ * Time complexity: O(n)
+ * space complexity: O(n)
+ */

@@ -17,4 +17,7 @@ var canJump = function(nums) {
 /**
  * have last index repeatedly store the lastindex that can be reached.
  * add the index and value of index and see if you can reach the lastindex
+ * 
+ * Time Complexity: O(n)
+ * Space complexity: O(1)
  */

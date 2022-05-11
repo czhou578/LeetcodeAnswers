@@ -3,28 +3,29 @@
  * @return {number}
  */
  var lengthOfLongestSubstring = function(s) {
-  if (s.length == 0) return 0;
-
   let leftPointer = 0;
-  let rightPointer = 0;
-  let maxSubstringLength = 0;
+  let result = 0;
   let set = new Set();
 
-  while (rightPointer < s.length) {
-    if (!set.has(s.charAt(rightPointer))) {
-      set.add(s.charAt(rightPointer))
-      rightPointer++;
-      maxSubstringLength = Math.max(maxSubstringLength, set.size)
-    } else {
-      set.delete(s.charAt(leftPointer));
-      leftPointer++;
-    }
+  for (let rightPointer = 0; rightPointer < s.length; rightPointer++) {
+      while (set.has(s[rightPointer])) {
+        set.delete(s[leftPointer])
+        leftPointer++
+      }
+      set.add(s[rightPointer])
+      result = Math.max(result, rightPointer - leftPointer + 1)
   }
 
-  return maxSubstringLength;
+  return result
 
 };
 
 let test = "pwwkew"
 
 console.log('result: ' + lengthOfLongestSubstring(test));
+
+/**
+ * Sliding window classic problem
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ */

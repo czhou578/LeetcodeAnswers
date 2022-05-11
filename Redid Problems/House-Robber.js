@@ -2,27 +2,21 @@
  * @param {number[]} nums
  * @return {number}
  */
-var rob = function(nums) {
-  if (nums.length == 0 || nums == null) {
-    return 0
-  }  
-
-  if (nums.length == 1) {
-    return nums[0]
+ var rob = function(nums) {
+      
+  let rob1 = 0
+  let rob2 = 0
+  
+  for (const num of nums) {
+      let temp = Math.max(rob1 + num, rob2)
+      rob1 = rob2;
+      rob2 = temp
   }
-
-  let result = []
-  result[0] = nums[0]
-  result[1] = Math.max(nums[0], nums[1])
-
-  for (let i = 2; i < nums.length; i++) {
-    result[i] = Math.max(result[i - 1], result[i - 2] + nums[i])
-  }
-
-  return result[result.length - 1]
+  
+  return rob2
 };
 
 /**
- * Time complexity: O(n)
- * space complexity: O(n)
+ * Time: O(n)
+ * Space complexity: O(1)
  */
