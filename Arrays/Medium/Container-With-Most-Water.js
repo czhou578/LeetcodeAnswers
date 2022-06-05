@@ -3,24 +3,20 @@
  * @return {number}
  */
  var maxArea = function(height) {
-   console.log('colin');
-  var arr = [height.length]
+  let area = 0;
+  let i = 0
+  let j = height.length - 1
 
-  for (let i = 0; i < height.length; i++) {
-    arr.push({i: height[i]})
+  while (i < j) {
+    const tempArea = (j - i) * Math.min(height[i], height[j])
+    area = Math.max(area, tempArea)
+    if (height[i] > height[j]) {
+      j -= 1
+    } else {
+      i += 1
+    }
   }
 
-  console.log(arr);
-
-  var arrSorted = arr.sort(function(a, b) {
-    return Object.keys(a) - Object.keys(b)
-  })
-
-  console.log(arrSorted);
+  return area
 
 };
-
-const input = [1,8,6,2,5,4,8,3,7]
-maxArea(input)
-// console.log('Area is: ' + maxArea(input));
-

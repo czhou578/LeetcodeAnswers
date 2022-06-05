@@ -11,7 +11,7 @@ var coinChange = function(coins, amount) {
     for (let i = 0; i < amountArray.length; i++) {
       if (coin <= i) { 
         let index = i - coin;
-        let potentialAmt = coin[index] + 1
+        let potentialAmt = amountArray[index] + 1
         amountArray[i] = Math.min(potentialAmt, amountArray[i])
       }
     }

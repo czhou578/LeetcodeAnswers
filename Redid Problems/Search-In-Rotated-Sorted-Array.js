@@ -4,52 +4,15 @@
  * @return {number}
  */
  var search = function(nums, target) {
-  // if (nums.length == 1 && nums[0] != target) { 
-  //   return -1
-
-  // } else if (nums.length == 1 && nums[0] == target){
-  //   return 0;
-  // }
-  
-  // const findZero = () => Math.min(...nums)
-
-  // let minIndex = nums.findIndex(findZero)
-  // let firstElement = nums[0];
-
-  // if (firstElement == target) return 0;
-
-  // if (nums[minIndex] == target) return minIndex;
-
-  // if (nums[minIndex] > firstElement && minIndex > 0) {
-  //   if (target >= 0 && target < firstElement) {
-  //     for (let i = minIndex; i < nums.length; i++) {
-  //       if (nums[i] == target) return i;
-  //     }
-  
-  //     return -1;
-  
-  //   } else if (target >= firstElement) {
-  //     for (let i = 0; i < minIndex; i++) {
-  //       if (nums[i] == target) return i;
-  //     }
-      
-  //     return -1;
-  //   }
-
-  // } else {
-  //   const findElement = nums.findIndex((element) => element == target)
-  //   return findElement
-  // }
-
   let leftPointer = 0;
   let rightPointer = nums.length - 1
 
   while(leftPointer <= rightPointer) {
-    let mid = Math.floor(leftPointer + (rightPointer - leftPointer) / 2)
+    let mid = Math.floor((rightPointer + leftPointer) / 2)
 
-    if (nums[mid] === target) return mid
+    if (nums[mid] === target) return mid //return index
 
-    if (nums[leftPointer] <= nums[mid]) {
+    if (nums[leftPointer] <= nums[mid]) { //if furthest left element is smaller then mid
 
       if (nums[leftPointer] <= target && target <= nums[mid]) {
         rightPointer = mid - 1
