@@ -15,7 +15,6 @@
     } else {
       count++
     }
-    
   }
 
   return count
@@ -30,5 +29,5 @@ console.log(eraseOverlapIntervals(test));
  * I was messing too much with the end point of one interval and the front of the next. Did I overthink it?
  * 
  * Space time complexity = O(1)
- * RunTime complexity: O(n) since we have one loop 
+ * RunTime complexity: O(nlogn) since we have one loop 
  */

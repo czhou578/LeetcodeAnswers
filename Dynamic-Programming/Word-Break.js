@@ -24,4 +24,6 @@
  * new array of length + 1 since if there is one word, then it return true
  * draw out the solution
  * 
+ * Time complexity: O(n^2)
+ * Spae complexity: O(n)
  */
