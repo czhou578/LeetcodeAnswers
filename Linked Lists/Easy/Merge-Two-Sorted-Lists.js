@@ -31,3 +31,6 @@ var mergeTwoLists = function(l1, l2) {
       
   return result.next
 };
+
+//Time: O(n)
+//Space: O(n)

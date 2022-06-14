@@ -9,37 +9,36 @@
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
  */
-var reorderList = function(head) {
-  // if (!head || !head.next) return;
-  
+var reorderList = function (head) {
   let slowPointer = head;
   let fastPointer = head;
 
   while (fastPointer && fastPointer.next) {
-    slowPointer = slowPointer.next
-    fastPointer = fastPointer.next.next
+    slowPointer = slowPointer.next;
+    fastPointer = fastPointer.next.next;
   }
 
-  let secondHalf = slowPointer.next
+  let secondHalf = slowPointer.next; //start of secondhalf of list
   slowPointer.next = null;
-  let prevNode = null
+  let prevNode = null;
 
-  while (secondHalf) { //reverse second part of list
-    let temp = secondHalf.next
+  while (secondHalf) {
+    //reverse second part of list
+    let temp = secondHalf.next;
     secondHalf.next = prevNode;
-    prevNode = secondHalf
-    secondHalf = temp
+    prevNode = secondHalf;
+    secondHalf = temp;
   }
 
   let first = head;
   let second = prevNode;
 
   while (second) {
-    let temp1 = first.next
-    let temp2 = second.next
+    let temp1 = first.next;
+    let temp2 = second.next;
 
-    first.next = second
-    second.next = temp1
+    first.next = second;
+    second.next = temp1;
     first = temp1;
     second = temp2;
   }
@@ -56,7 +55,7 @@ var reorderList = function(head) {
 
   // slowPointer = head;
   // fastPointer = middleNode.next
-  
+
   // while (fastPointer) {
   //   middleNode.next = fastPointer.next
   //   fastPointer.next = slowPointer.next

@@ -10,35 +10,28 @@
  * @param {number} n
  * @return {ListNode}
  */
- var removeNthFromEnd = function(head, n) {
-  let dummyHead = new ListNode(-Infinity)
-  dummyHead.next = head;
-  let resultHead = dummyHead
-  let counter = 0 //for tracking n
-  let tail = head;
+var removeNthFromEnd = function (head, n) {
+  let dummy = new ListNode(0);
+  dummy.next = head;
+  let left = dummy;
+  let right = head;
 
-  while(counter < n) {
-    tail = tail.next
-    counter++
+  while (right && n > 0) {
+    right = right.next;
+    n--;
   }
 
-  let removeNode = head;
-  let previous = dummyHead;
-
-  while(tail) {
-    tail = tail.next
-    removeNode = removeNode.next
-    previous = previous.next
+  while (right) {
+    left = left.next;
+    right = right.next;
   }
 
-  previous.next = removeNode.next
-  
-  return resultHead.next
-    
+  left.next = left.next.next;
+
+  return dummy.next;
 };
-
 /**
  * Time complexity O(n)
  * space complexity O(1) since just creating 3 pointers
  * Using dummy head (addition or deletion)
-*/
+ */
