@@ -2,21 +2,21 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
- var groupAnagrams = function(strs) {
-  if (strs.length === 1) return [[strs[0]]]
+var groupAnagrams = function (strs) {
+  if (strs.length === 1) return [[strs[0]]];
 
-  let obj = {}
+  let obj = {};
 
   for (const word of strs) {
-    let string = word.split("").sort().join("")
+    let string = word.split("").sort().join("");
     if (obj[string]) {
-      obj[string].push(word)
+      obj[string].push(word);
     } else {
-      obj[string] = [word]
+      obj[string] = [word];
     }
   }
 
-  return Object.values(obj)
+  return Object.values(obj);
 };
 
 /**

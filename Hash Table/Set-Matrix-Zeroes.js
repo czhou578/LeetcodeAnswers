@@ -2,39 +2,32 @@
  * @param {matrix[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
- var setZeroes = function(matrix) {
-  //keep track of row and column index 
-  //2 sets for specific indexes of rows, widths to turn to 0.
+var setZeroes = function (matrix) {
+  const zeroesA = [];
 
-  //case 1: 0 is at the corner of matrix
-  // case 2: 0 is in middle (can go 4 directions)
-
-  let rowToBeZero = new Set()
-  let columnToBeZero = new Set()
-
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] === 0) {
-        rowToBeZero.add(i)
-        columnToBeZero.add(j)
-      }
+  for (let r = 0; r < matrix.length; r++) {
+    for (let c = 0; c < matrix[0].length; c++) {
+      if (matrix[r][c] === 0) zeroesA.push([r, c]);
     }
   }
 
-  for (let i = 0; i < matrix.length; i++) {
-    if (rowToBeZero.has(i)) {
-      for (let j = 0; j < matrix[i].length; j++) {
-        matrix[i][j] = 0
-      }
-    } else {
-      for (let j = 0; j < matrix[i].length; j++) {
-        if (columnToBeZero.has(j)) {
-          matrix[i][j] = 0
-        }
-      }      
-    }
+  for (const entry of zeroesA) {
+    let row = entry[0];
+    let col = entry[1];
+
+    helper(row, col, matrix);
   }
-}; 
+};
+
+const helper = (row, col, matrix) => {
+  for (let i = 0; i < matrix.length; i++) {
+    matrix[i][col] = 0;
+  }
+
+  for (let i = 0; i < matrix[0].length; i++) {
+    matrix[row][i] = 0;
+  }
+};
 
 /**
  * Time complexity: O(n^2)
