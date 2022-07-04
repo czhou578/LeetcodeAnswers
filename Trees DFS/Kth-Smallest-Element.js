@@ -11,66 +11,30 @@
  * @param {number} k
  * @return {number}
  */
- var kthSmallest = function(root, k) {
-
-  // let array = [] //push into this array
-  // let counter = 0
-  
-  // const dfs = (node) => {
-    
-  //   if (node.left) {
-  //     array.push(node.left.val)
-  //     dfs(node.left)
-      
-  //   } else {
-  //     array.push(null)
-  //     return
-      
-  //   }
-
-  //   array.push(node.val)
-
-  //   if (node.right) {
-  //     array.push(node.right.val)
-  //     dfs(node.right)
-
-  //   } else {
-  //     array.push(null)
-  //     return
-  //   }
-  // }
-
-  // dfs(root)
-
-  // for (let number of array) {
-  //   if (counter === k) return number
-  //   if (number === null) continue
-  //   counter++
-  // }
-
-  let array = []
+var kthSmallest = function (root, k) {
+  let array = [];
 
   const dfs = (node, array) => {
     if (!node) {
-      return 
+      return;
     }
 
-    dfs(node.left, array) //dfs with left node, and the !node will check to see if it was null
-    array.push(node.val)
-    dfs(node.right, array)
-  }
+    dfs(node.left, array); //dfs with left node, and the !node will check to see if it was null
+    array.push(node.val);
+    dfs(node.right, array);
+  };
 
-  dfs(root, array)
+  dfs(root, array);
 
-  return array[k - 1] //no need to traverse
+  return array[k - 1]; //no need to traverse
 };
 
 /**
  * Similarities: checking null at beginning, push into array, inorder traversal, return from edge case, no adding null
- * 
- * Differences: passing array, no need to traverse array, just use index. don't push 
- * 
+ *
+ * Differences: passing array, no need to traverse array, just use index. don't push
+ *
  * Biggest mistake: inorder traversal is wrong. Supposed to go to the bottom of the tree and push, not at the beginning.
- * 
+ *
  * O(N) time and space complexity
  */
