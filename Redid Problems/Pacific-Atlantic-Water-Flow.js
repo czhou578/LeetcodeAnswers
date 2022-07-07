@@ -54,4 +54,7 @@ var pacificAtlantic = function (heights) {
 /**
   Time: O(n * m)
   space: O(N)
+
+  Reflection: Starting from the top and bottom, dfs, add to set.
+  
 */

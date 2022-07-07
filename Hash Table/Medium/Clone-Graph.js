@@ -1,16 +1,14 @@
-/**
- * // Definition for a Node.
- * function Node(val, neighbors) {
- *    this.val = val === undefined ? 0 : val;
- *    this.neighbors = neighbors === undefined ? [] : neighbors;
- * };
- */
+/*
+Second Solution
 
-/**
- * @param {Node} node
- * @return {Node}
- */
- var cloneGraph = function (node, cloneMap = new Map()) {
+1.Consider every node as a graph.
+2. For every node given, check if its clone exists in given hash table.
+If so, return it from hash table.
+Else, create a clone of given node. Iterate through given node's neighbours and clone each neighbor
+and push it to cloned node's neighbors array.
+3. Return cloned node.
+*/
+var cloneGraph = function (node, cloneMap = new Map()) {
   if (!node) {
     return null;
   }
