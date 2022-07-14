@@ -9,21 +9,21 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
- var reverseList = function(head) {
+var reverseList = function (head) {
   let previous = null;
 
-  while(head) {
-    let nextNode = head.next
-    head.next = previous
+  while (head) {
+    let nextNode = head.next;
+    head.next = previous;
     previous = head;
     head = nextNode;
   }
 
-  return previous
+  return previous;
 };
 
 /**
  * Have 32pointers, previous,current, and break links
  * Time O(n) because we are going through the list once
- * Space O(1) 
+ * Space O(1)
  */
