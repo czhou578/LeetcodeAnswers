@@ -88,3 +88,8 @@ var longestPalindrome = function (words) {
   flag ? (longest += 2) : (longest += 0);
   return longest;
 };
+
+/**
+ * Similar things: we both used hashmap to index all the elments
+ *
+ */
