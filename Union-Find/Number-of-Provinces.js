@@ -32,4 +32,5 @@ var findCircleNum = function (isConnected) {
   }
 };
 
-//
+//run time o(n^2)
+//space: O(n)
