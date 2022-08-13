@@ -3,19 +3,6 @@
  * @return {string}
  */
 
-const getDrome = (left, right, s) => {
-  while (left >= 0 && right < s.length) {
-    if (s[left] !== s[right]) {
-      break;
-    }
-
-    left--;
-    right++;
-  }
-
-  return [left + 1, right];
-};
-
 var longestPalindrome = function (s) {
   let result = "";
   let resLen = 0;
