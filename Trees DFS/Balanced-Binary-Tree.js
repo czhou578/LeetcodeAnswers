@@ -23,3 +23,8 @@ var isBalanced = function (root) {
 
   return maxDepth(root)[0];
 };
+
+/**
+ * O(N) time
+ * O(h) space, since we are max going through every level of the tree
+ */

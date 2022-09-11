@@ -10,28 +10,30 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function(root) {
-  if (!root) return null
+var invertTree = function (root) {
+  if (!root) return null;
 
-  let left = root.left
-  let right = root.right
+  let left = root.left;
+  let right = root.right;
 
-  root.left = right
+  root.left = right;
   root.right = left;
 
-  invertTree(root.left)
-  invertTree(root.right)
+  invertTree(root.left);
+  invertTree(root.right);
   // const dfs = (leftNode, rightNode) => {
-  //   if (!leftNode || !rightNode) return 
+  //   if (!leftNode || !rightNode) return
 
   //   let value = dfs(leftNode.left, rightNode.right)
   //   let valueRight = dfs(rightNode.left, rightNode.right)
   // }
 
   // dfs(root.left, root.right)
-  return root
+  return root;
 };
 
 /**
  * Have two variables store the left and right. Dfs
+ * Time: O(n)
+ * Space: O(h) where h is the height of the binary tree
  */
