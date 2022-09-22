@@ -9,7 +9,7 @@ var updateMatrix = function (mat) {
   const output = Array(M)
     .fill()
     .map(() => Array(N).fill(0));
-  const queue = [];
+  let queue = [];
 
   let directions = [
     [0, 1],
@@ -18,8 +18,8 @@ var updateMatrix = function (mat) {
     [-1, 0],
   ];
 
-  for (let i = 0; i < M; i++) {
-    for (let j = 0; j < mat[i].length; j++) {
+  for (let i = 0; i < mat.length; i++) {
+    for (let j = 0; j < mat[0].length; j++) {
       if (mat[i][j] === 0) queue.push([i, j]);
       else output[i][j] = -1;
     }
@@ -29,20 +29,23 @@ var updateMatrix = function (mat) {
     const len = queue.length;
 
     for (let i = 0; i < len; i++) {
-      const [row, col] = queue.shift();
+      const [x, y] = queue.shift();
+
       for (const [dx, dy] of directions) {
-        const x = row + dx;
-        const y = col + dy;
+        let moveX = x + dx;
+        let moveY = y + dy;
 
-        if (x < 0 || x >= matrix.length) continue;
-        if (y < 0 || y >= matrix[0].length) continue;
-        if (matrix[x][y] === 0) continue;
+        if (moveX < 0 || moveX >= M) continue;
+        if (moveY < 0 || moveY >= N) continue;
 
-        if (output[x][y] !== -1) continue;
+        if (mat[moveX][moveY] === 0) continue;
+        if (mat[moveX][moveY] === -1) continue;
 
-        output[x][y] = output[row][col] + 1;
-        queue.push([x, y]);
+        output[moveX][moveY] = output[x][y] + 1;
+        queue.push([moveX][moveY]);
       }
     }
   }
+
+  return result;
 };

@@ -3,66 +3,41 @@
  * @return {number}
  */
 var numIslands = function (grid) {
-  //edge case is if
-  const tempGrid = grid.map((row) => row.map((column) => false)); //create temporary grid
-  let islandCount = 0;
+  const dfs = (grid, row, column) => {
+    let nR = grid.length;
+    let nC = grid[0].length;
 
-  for (let i = 0; i < tempGrid.length; i++) {
-    for (let j = 0; j < tempGrid[i].length; j++) {
-      if (dfs(i, j, grid, tempGrid)) islandCount++;
+    if (
+      row < 0 ||
+      column < 0 ||
+      row >= nR ||
+      column >= nC ||
+      grid[row][column] == 0
+    )
+      return;
+
+    grid[row][column] = 0;
+    dfs(grid, row - 1, column);
+    dfs(grid, row + 1, column);
+    dfs(grid, row, column - 1);
+    dfs(grid, row, column + 1);
+  };
+
+  if (grid == null || grid.length == 0) {
+    return 0;
+  }
+
+  let nR = grid.length;
+  let nC = grid[0].length;
+  let numIslands = 0;
+  for (let r = 0; r < nR; ++r) {
+    for (let c = 0; c < nC; ++c) {
+      if (grid[r][c] == 1) {
+        ++numIslands;
+        dfs(grid, r, c);
+      }
     }
   }
 
-  return islandCount;
+  return numIslands;
 };
-
-const dfs = (i, j, grid, tempGrid) => {
-  const queue = [[i, j]];
-  let islandSize = 0;
-
-  while (queue.length > 0) {
-    let current = stack.pop(); //pop out of stack
-    let [i, j] = current; //destructre i and j
-
-    if (tempGrid[i][j]) continue;
-    tempGrid[i][j] = true; //assign tempgrid value to true if it hasn't already been marked true
-
-    if (grid[i][j] === "0") continue; //if value is 0, means not island, continue
-    islandSize++;
-
-    let array = isAdjacent(i, j, grid, tempGrid);
-    queue.push(...array);
-  }
-
-  return islandSize > 0 ? true : false;
-};
-
-const isAdjacent = (i, j, grid, tempGrid) => {
-  //used to determine whether an adjacent neighbor in all directions exist
-  const adjNeighbors = [];
-
-  if (i > 0 && !tempGrid[i - 1][j]) {
-    //is a cell above
-    adjNeighbors.push([i - 1, j]);
-  }
-
-  if (i < grid.length - 1 && !tempGrid[i + 1][j]) {
-    adjNeighbors.push([i + 1, j]);
-  }
-
-  if (j > 0 && !tempGrid[i][j - 1]) {
-    //is a cell above
-    adjNeighbors.push([i, j - 1]);
-  }
-
-  if (j < grid[0].length - 1 && !tempGrid[i][j + 1]) {
-    adjNeighbors.push([i, j + 1]);
-  }
-
-  return adjNeighbors;
-};
-
-/**
- * brute force approach
- * dfs function is used to
- */
