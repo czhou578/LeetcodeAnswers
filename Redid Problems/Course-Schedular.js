@@ -4,64 +4,54 @@
  * @return {boolean}
  */
 var canFinish = function (numCourses, prerequisites) {
-  //arrays reversed contradict, so impossible ([0,1], [1, 0])
-  //cannot have duplicate arrays
-  //brute force: double for loop, compare 0 and 1 index to every other 0 and 1 index, if idx 0 === idx 1 and idx 1 === idx2, then we say impossible
-
-  // if (prerequisites.length === 0) return true;
-  // if (prerequisites.length === 1) return numCourses === 2;
-
-  // let courses = 2;
-
-  // for (let i = 0; i < prerequisites.length - 1; i++) {
-  //   let temp = prerequisites[i];
-  //   for (let j = i + 1; j < prerequisites.length; j++) {
-  //     if (prerequisites[j][0] === temp[1] && prerequisites[j][1] === temp[0]) {
-  //       courses -= 2;
-  //     } else {
-  //       courses += 2;
-  //     }
-  //   }
-  // }
-
-  // console.log(courses);
-
-  // return courses === numCourses;
-
-  let adjList = new Array(numCourses).fill(0).map(() => []);
-  let inDegree = new Array(numCourses).fill(0);
-
-  for (const [course, preCourse] of prerequisites) {
-    inDegree[course]++;
-    adjList[preCourse].push(course);
+  let map = new Map();
+  for (let i = 0; i < numCourses; i++) {
+    map.set(i, []);
   }
 
-  console.log(adjList);
+  console.log(map);
 
-  let queue = [];
-  for (let i = 0; i < inDegree.length; i++) {
-    if (inDegree[i] === 0) queue.push(i);
+  for (const [crs, pre] of prerequisites) {
+    let temp = map.get(crs);
+    temp.push(pre);
+    map.set(crs, temp);
   }
+  console.log(map);
 
-  let count = 0;
+  let set = new Set();
 
-  while (queue.length > 0) {
-    let node = queue.shift();
-    count++;
-    for (const v of adjList[node]) {
-      inDegree[v] -= 1;
-      if (inDegree[v] === 0) queue.push(v);
+  const dfs = (crs) => {
+    if (set.has(crs)) {
+      return false;
     }
+
+    if (map[crs] == []) {
+      return true;
+    }
+
+    set.add(crs);
+
+    for (let prereq of map.get(crs)) {
+      if (!dfs(prereq)) return false;
+    }
+
+    set.delete(crs);
+    map.set(map.get(crs), []);
+    return true;
+  };
+
+  for (let j = 0; j < numCourses; j++) {
+    if (!dfs(j)) return false;
   }
 
-  return numCourses === count;
+  return true;
 };
 
 console.log(
-  canFinish(5, [
-    [1, 4],
-    [2, 4],
-    [3, 1],
-    [3, 2],
+  canFinish(2, [
+    [1, 0],
+    [0, 1],
   ])
 );
+
+//passed 48/52 test cases

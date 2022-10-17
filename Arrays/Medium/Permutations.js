@@ -2,22 +2,15 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permute = function (nums) {
-  let result = [];
+var permute = function (nums, set = [], answers = []) {
+  if (!nums.length) answers.push([...set]);
 
-  const dfs = (i, nums) => {
-    if (i === nums.length) {
-      result.push(nums.slice());
-      return;
-    }
+  for (let i = 0; i < nums.length; i++) {
+    const tempHold = nums.filter((number, index) => index != i);
+    set.push(nums[i]);
+    permute(tempHold, set, answers);
+    set.pop();
+  }
 
-    for (let j = i; j < nums.length; j++) {
-      [nums[i], nums[j]] = [nums[j], nums[i]];
-      dfs(i + 1, nums)[(nums[i], nums[j])] = [nums[j], nums[i]];
-    }
-  };
-
-  dfs(0, nums);
-
-  return result;
+  return answers;
 };
