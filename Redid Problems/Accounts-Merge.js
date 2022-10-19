@@ -1,39 +1,42 @@
-// /**
-//  * @param {string[][]} accounts
-//  * @return {string[][]}
-//  */
-// var accountsMerge = function (accounts) {
-//   let result = [];
+/**
+ * @param {string[][]} accounts
+ * @return {string[][]}
+ */
+var accountsMerge = function (accounts) {
+  const graph = {}; //graph
+  const emailToName = {};
 
-//   let map = new Map();
+  for (let account of accounts) {
+    const name = account[0];
+    const firstEmail = account[1];
 
-//   for (let i = 0; i < accounts.length; i++) {
-//     let nameKey = accounts[i].shift();
-//     console.log("account: " + accounts[i]);
+    for (let i = 1; i < account.length; i++) {
+      //looping from first email to last email in specific account element
+      const email = account[i];
 
-//     if (map.has(nameKey)) {
-//       console.log("asdasdasd");
-//       for (let email of accounts[i]) {
-//         if (map.get(nameKey).includes(email)) {
-//           let set = new Set([nameKey, ...accounts[i], ...map.get(nameKey)]);
-//           let newArray = Array.from(set);
-//           result.push(newArray);
-//         }
-//       }
-//     } else {
-//       map.set(nameKey, accounts[i]);
-//       result.push([nameKey, ...accounts[i]]);
-//     }
-//   }
+      emailToName[email] = name; //keep track of which name belongs to which email
 
-//   return result;
-// };
+      addEdge(graph, firstEmail, email);
+      console.log(graph);
+      addEdge(graph, email, firstEmail);
+      console.log(graph);
+    }
+  }
+};
 
-// let accounts = [
-//   ["John", "johnsmith@mail.com", "john_newyork@mail.com"],
-//   ["John", "johnsmith@mail.com", "john00@mail.com"],
-//   ["Mary", "mary@mail.com"],
-//   ["John", "johnnybravo@mail.com"],
-// ];
+function addEdge(graph, from, to) {
+  if (from in graph === false) {
+    graph[from] = [];
+  }
 
-// console.log(accountsMerge(accounts));
+  graph[from].push(to);
+}
+
+let accounts = [
+  ["John", "johnsmith@mail.com", "john_newyork@mail.com"],
+  ["John", "johnsmith@mail.com", "john00@mail.com"],
+  ["Mary", "mary@mail.com"],
+  ["John", "johnnybravo@mail.com"],
+];
+
+console.log(accountsMerge(accounts));
