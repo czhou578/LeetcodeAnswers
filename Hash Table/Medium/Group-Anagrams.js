@@ -9,11 +9,7 @@ var groupAnagrams = function (strs) {
 
   for (const word of strs) {
     let string = word.split("").sort().join("");
-    if (obj[string]) {
-      obj[string].push(word);
-    } else {
-      obj[string] = [word];
-    }
+    obj[string] ? obj[string].push(word) : (obj[string] = [word]);
   }
 
   return Object.values(obj);
