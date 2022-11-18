@@ -22,8 +22,8 @@ var maxPathSum = function (root) {
     let left = Math.max(0, dfs(node.left));
     let right = Math.max(0, dfs(node.right));
 
-    max = Math.max(node.val + left + right, max);
+    max = Math.max(node.val + left + right, max); //calculating max value if we split (v like path)
 
-    return node.val + Math.max(left, right);
+    return node.val + Math.max(left, right); // return largest value path if we don't split
   }
 };
